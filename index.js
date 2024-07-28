@@ -26,7 +26,7 @@ class Usuario {
     emprestarLivro(livro) {
         if(livro.disponivel) {
             livro.emprestar() 
-            this.livrosEmprestads.push(livro)
+            this.livrosEmprestados.push(livro)
         } else {
             console.log(`O livro ${livro.titulo} não está disponível para empréstimo.`)
         }
@@ -63,3 +63,16 @@ const livro1 = new Livro ("JavaScript: The Good Parts", "Douglas Crockford", "12
 const livro2 = new Livro ("Eloquent JavaScript", "Marijn Haverbeke", "987654321")
 
 biblioteca.adicionarLivro(livro1)
+biblioteca.adicionarLivro(livro2)
+
+const usuario1 = new Usuario('Adriano') 
+biblioteca.cadastrarUsuario(usuario1)
+
+biblioteca.listarLivros()
+usuario1.emprestarLivro(livro1)
+usuario1.emprestarLivro(livro2)
+
+biblioteca.listarLivros() 
+usuario1.devolverLivro(livro1)
+
+biblioteca.listarLivros()
